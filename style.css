@@ -20,6 +20,8 @@
   --secondary-light: #3b82f6;
   --accent: #22c55e;       /* Verde WhatsApp */
   --accent-light: #4ade80;
+  --telegram: #24a1de;     /* Azul Telegram */
+  --telegram-light: #4fb3e6;
   
   --border-color: #e7e5e4;
   
@@ -131,10 +133,10 @@ p {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  padding: 16px 32px;
+  gap: 10px;
+  padding: 14px 28px;
   font-family: var(--font-body);
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
   border-radius: var(--radius-full);
@@ -164,6 +166,17 @@ p {
   background-color: var(--accent-light);
   transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(34, 197, 94, 0.25);
+}
+
+.btn-telegram {
+  background-color: var(--telegram);
+  color: #ffffff;
+}
+
+.btn-telegram:hover {
+  background-color: var(--telegram-light);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(36, 161, 222, 0.25);
 }
 
 .btn-outline {
@@ -255,134 +268,26 @@ header {
 }
 
 /* ==========================================================================
-   HERO SECTION
-   ========================================================================== */
-.hero {
-  position: relative;
-  overflow: hidden;
-  background: radial-gradient(circle at 80% 20%, rgba(13, 148, 136, 0.04) 0%, rgba(37, 99, 235, 0.02) 100%);
-  padding: 100px 0 80px 0;
-}
-
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 60px;
-  align-items: center;
-}
-
-.hero-content {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.hero-subtitle {
-  font-size: clamp(1.1rem, 2vw, 1.25rem);
-  color: var(--text-secondary);
-  max-width: 540px;
-}
-
-.hero-cta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  margin-top: 10px;
-}
-
-.hero-visual {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.hero-image-wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 480px;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-xl);
-  overflow: hidden;
-  border: 1px solid var(--border-color);
-  background-color: #ffffff;
-}
-
-.hero-image {
-  width: 100%;
-  height: auto;
-  display: block;
-  transition: transform var(--transition-slow);
-}
-
-.hero-image-wrapper:hover .hero-image {
-  transform: scale(1.03);
-}
-
-/* Decorative background circles */
-.circle-glow {
-  position: absolute;
-  border-radius: var(--radius-full);
-  filter: blur(80px);
-  z-index: -1;
-}
-
-.glow-1 {
-  width: 300px;
-  height: 300px;
-  background: rgba(13, 148, 136, 0.1);
-  top: -50px;
-  right: -50px;
-}
-
-.glow-2 {
-  width: 250px;
-  height: 250px;
-  background: rgba(37, 99, 235, 0.08);
-  bottom: -50px;
-  left: -50px;
-}
-
-@media (max-width: 992px) {
-  .hero {
-    padding: 60px 0;
-  }
-  
-  .hero-grid {
-    grid-template-columns: 1fr;
-    gap: 48px;
-    text-align: center;
-  }
-  
-  .hero-content {
-    align-items: center;
-  }
-  
-  .hero-subtitle {
-    margin: 0 auto;
-  }
-  
-  .hero-cta {
-    justify-content: center;
-  }
-}
-
-/* ==========================================================================
-   HOW IT WORKS SECTION
+   STEPS SECTION (AHORA PRIMERO / TOP FOLD)
    ========================================================================== */
 .steps-section {
-  background-color: var(--bg-secondary);
-  border-top: 1px solid var(--border-color);
+  position: relative;
+  background: radial-gradient(circle at 50% 120%, rgba(13, 148, 136, 0.05) 0%, rgba(37, 99, 235, 0.02) 100%);
+  padding: 60px 0 80px 0;
   border-bottom: 1px solid var(--border-color);
 }
 
 .section-header {
   text-align: center;
-  max-width: 650px;
-  margin: 0 auto 60px auto;
+  max-width: 800px;
+  margin: 0 auto 50px auto;
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+
+.section-header h1 {
+  margin-bottom: 10px;
 }
 
 .section-label {
@@ -391,6 +296,14 @@ header {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--primary);
+}
+
+.top-cta-group {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 15px;
 }
 
 .steps-grid {
@@ -403,13 +316,14 @@ header {
   background-color: var(--bg-primary);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
-  padding: 40px 32px;
+  padding: 35px 28px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 18px;
   transition: all var(--transition-normal);
   position: relative;
   overflow: hidden;
+  box-shadow: var(--shadow-sm);
 }
 
 .step-card::before {
@@ -435,7 +349,7 @@ header {
 
 .step-number {
   font-family: var(--font-headings);
-  font-size: 3rem;
+  font-size: 2.75rem;
   font-weight: 800;
   line-height: 1;
   color: rgba(13, 148, 136, 0.15);
@@ -447,7 +361,7 @@ header {
 }
 
 .step-title {
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   font-weight: 600;
   color: var(--text-primary);
 }
@@ -464,7 +378,75 @@ header {
   }
   
   .step-card {
-    padding: 32px 24px;
+    padding: 30px 24px;
+  }
+}
+
+/* ==========================================================================
+   HERO / DETALLE SECTION (AHORA SEGUNDO)
+   ========================================================================== */
+.hero {
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  padding: 80px 0;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+}
+
+.hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  background-color: #ffffff;
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform var(--transition-slow);
+}
+
+.hero-image-wrapper:hover .hero-image {
+  transform: scale(1.03);
+}
+
+@media (max-width: 992px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  
+  .hero-content {
+    align-items: center;
   }
 }
 
@@ -479,28 +461,15 @@ header {
 
 .segment-card {
   border-radius: var(--radius-lg);
-  padding: 50px 40px;
+  padding: 45px 35px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 22px;
   position: relative;
   overflow: hidden;
   border: 1px solid var(--border-color);
   background-color: var(--bg-primary);
   transition: all var(--transition-normal);
-}
-
-.segment-card::after {
-  content: '';
-  position: absolute;
-  right: -50px;
-  bottom: -50px;
-  width: 150px;
-  height: 150px;
-  border-radius: var(--radius-full);
-  background: radial-gradient(circle, var(--bg-tertiary) 0%, transparent 70%);
-  opacity: 0.5;
-  z-index: 1;
 }
 
 .segment-card:hover {
@@ -517,13 +486,13 @@ header {
 }
 
 .segment-icon {
-  width: 56px;
-  height: 56px;
+  width: 50px;
+  height: 50px;
   border-radius: var(--radius-md);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
 .segment-card-family .segment-icon {
@@ -537,18 +506,30 @@ header {
 }
 
 .segment-title {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: 700;
 }
 
 .segment-desc {
-  font-size: 1.05rem;
+  font-size: 1rem;
   color: var(--text-secondary);
 }
 
 .segment-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
   z-index: 2;
   margin-top: 8px;
+}
+
+@media (max-width: 1200px) {
+  .segment-actions {
+    flex-direction: column;
+  }
+  .segment-actions .btn {
+    width: 100%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -618,7 +599,7 @@ header {
 }
 
 /* ==========================================================================
-   FOOTER
+   FOOTER & FLAGS
    ========================================================================== */
 footer {
   background-color: var(--bg-tertiary);
@@ -678,7 +659,8 @@ footer {
 
 .footer-links {
   display: flex;
-  gap: 24px;
+  gap: 18px;
+  flex-wrap: wrap;
 }
 
 .footer-links a {
@@ -691,30 +673,62 @@ footer {
   color: var(--primary);
 }
 
-.venezuela-badge {
+/* Flags Styling */
+.flags-badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   font-weight: 500;
+  background-color: var(--bg-primary);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.flags-list {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .flag {
   display: inline-flex;
-  width: 20px;
-  height: 12px;
+  flex-direction: column;
+  width: 22px;
+  height: 14px;
   border-radius: 2px;
   overflow: hidden;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.flag-yellow { background-color: #fcd34d; width: 33.33%; height: 100%; }
-.flag-blue { background-color: #2563eb; width: 33.33%; height: 100%; }
-.flag-red { background-color: #ef4444; width: 33.34%; height: 100%; }
+/* El Salvador flag (horizontal stripes: blue, white, blue) */
+.flag-sv .stripe-blue { background-color: #002f6c; height: 33.33%; width: 100%; }
+.flag-sv .stripe-white { background-color: #ffffff; height: 33.33%; width: 100%; }
 
-@media (max-width: 768px) {
+/* Venezuela flag (horizontal stripes: yellow, blue, red) */
+.flag-ve .stripe-yellow { background-color: #fcd34d; height: 33.33%; width: 100%; }
+.flag-ve .stripe-blue { background-color: #002f6c; height: 33.33%; width: 100%; }
+.flag-ve .stripe-red { background-color: #ef4444; height: 33.34%; width: 100%; }
+
+/* Colombia flag (horizontal stripes: yellow 50%, blue 25%, red 25%) */
+.flag-co .stripe-yellow { background-color: #fcd34d; height: 50%; width: 100%; }
+.flag-co .stripe-blue { background-color: #002f6c; height: 25%; width: 100%; }
+.flag-co .stripe-red { background-color: #ef4444; height: 25%; width: 100%; }
+
+/* Mexico flag (vertical stripes: green, white, red) */
+.flag-mx {
+  flex-direction: row;
+}
+.flag-mx .col-green { background-color: #006847; width: 33.33%; height: 100%; }
+.flag-mx .col-white { background-color: #ffffff; width: 33.33%; height: 100%; }
+.flag-mx .col-red { background-color: #c8102e; width: 33.34%; height: 100%; }
+
+@media (max-width: 900px) {
   .footer-meta {
     flex-direction: column;
-    gap: 16px;
+    gap: 20px;
   }
   
   .footer-links {

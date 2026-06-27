@@ -8,10 +8,9 @@
 // ==========================================================================
 const WHATSAPP_CONFIG = {
   // Reemplazar con el número oficial del chatbot (con código de país, sin '+' ni ceros iniciales)
-  // Ejemplo para Venezuela: 584241234567
   phoneNumber: "584241234567",
   
-  // Mensajes preestablecidos para cada caso de uso
+  // Mensajes preestablecidos para WhatsApp
   messages: {
     general: "Hola, me gustaría iniciar una búsqueda o reporte en el sistema de Ayudando a Venezuela.",
     buscarFamiliar: "Hola, necesito buscar a un familiar desaparecido. ¿Me pueden ayudar con el reconocimiento facial?",
@@ -19,8 +18,20 @@ const WHATSAPP_CONFIG = {
   }
 };
 
+const TELEGRAM_CONFIG = {
+  // Reemplazar con el nombre de usuario del bot oficial de Telegram (sin '@')
+  botUsername: "AyudandoAVenezuelaBot",
+  
+  // Parámetros de inicio para Telegram deep linking (deben ser alfanuméricos y guiones bajos)
+  startPayloads: {
+    general: "iniciar",
+    buscarFamiliar: "buscar_familiar",
+    registrarHallazgo: "registrar_hallazgo"
+  }
+};
+
 // ==========================================================================
-// WHATSAPP LINK GENERATOR
+// LINK GENERATION
 // ==========================================================================
 function getWhatsAppLink(messageType) {
   const baseText = WHATSAPP_CONFIG.messages[messageType] || WHATSAPP_CONFIG.messages.general;
@@ -28,30 +39,33 @@ function getWhatsAppLink(messageType) {
   return `https://wa.me/${WHATSAPP_CONFIG.phoneNumber}?text=${encodedText}`;
 }
 
-function setupWhatsAppButtons() {
-  // Hero CTA
-  const heroBtn = document.getElementById("hero-whatsapp-btn");
-  if (heroBtn) {
-    heroBtn.href = getWhatsAppLink("general");
-  }
+function getTelegramLink(payloadType) {
+  const payload = TELEGRAM_CONFIG.startPayloads[payloadType] || TELEGRAM_CONFIG.startPayloads.general;
+  return `https://t.me/${TELEGRAM_CONFIG.botUsername}?start=${payload}`;
+}
 
-  // Segment Family CTA
-  const familyBtn = document.getElementById("family-whatsapp-btn");
-  if (familyBtn) {
-    familyBtn.href = getWhatsAppLink("buscarFamiliar");
-  }
+function setupChatButtons() {
+  // --- WhatsApp Buttons ---
+  const heroWaBtn = document.getElementById("hero-whatsapp-btn");
+  if (heroWaBtn) heroWaBtn.href = getWhatsAppLink("general");
 
-  // Segment Rescue CTA
-  const rescueBtn = document.getElementById("rescue-whatsapp-btn");
-  if (rescueBtn) {
-    rescueBtn.href = getWhatsAppLink("registrarHallazgo");
-  }
-  
-  // Footer Link
-  const footerBtn = document.getElementById("footer-whatsapp-btn");
-  if (footerBtn) {
-    footerBtn.href = getWhatsAppLink("general");
-  }
+  const familyWaBtn = document.getElementById("family-whatsapp-btn");
+  if (familyWaBtn) familyWaBtn.href = getWhatsAppLink("buscarFamiliar");
+
+  const rescueWaBtn = document.getElementById("rescue-whatsapp-btn");
+  if (rescueWaBtn) rescueWaBtn.href = getWhatsAppLink("registrarHallazgo");
+
+
+  // --- Telegram Buttons ---
+  const heroTgBtn = document.getElementById("hero-telegram-btn");
+  if (heroTgBtn) heroTgBtn.href = getTelegramLink("general");
+
+  const familyTgBtn = document.getElementById("family-telegram-btn");
+  if (familyTgBtn) familyTgBtn.href = getTelegramLink("buscarFamiliar");
+
+  const rescueTgBtn = document.getElementById("rescue-telegram-btn");
+  if (rescueTgBtn) rescueTgBtn.href = getTelegramLink("registrarHallazgo");
+
 }
 
 // ==========================================================================
@@ -88,7 +102,6 @@ function setupScrollReveal() {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add("active");
-        // Una vez revelado, dejamos de observarlo para mejor rendimiento
         observer.unobserve(entry.target);
       }
     });
@@ -103,7 +116,7 @@ function setupScrollReveal() {
 // INITIALIZATION
 // ==========================================================================
 document.addEventListener("DOMContentLoaded", () => {
-  setupWhatsAppButtons();
+  setupChatButtons();
   setupHeaderScroll();
   setupScrollReveal();
 });
