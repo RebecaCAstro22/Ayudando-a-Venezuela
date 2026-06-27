@@ -12,9 +12,9 @@ const WHATSAPP_CONFIG = {
   
   // Mensajes preestablecidos para WhatsApp
   messages: {
-    general: "Hola, me gustaría iniciar una búsqueda o reporte en el sistema de Ayudando a Venezuela.",
+    general: "Hola, me gustaría iniciar una búsqueda o reporte en el sistema de BuscaChat.",
     buscarFamiliar: "Hola, necesito buscar a un familiar desaparecido. ¿Me pueden ayudar con el reconocimiento facial?",
-    registrarHallazgo: "Hola, soy rescatista/voluntario y quiero registrar el hallazgo de una persona para que su familia pueda localizarla."
+    registrarHallazgo: "Hola, soy rescatista/voluntario y quiero registrar el hallazgo de una persona para que su familia pueda localizarla en BuscaChat."
   }
 };
 
@@ -77,11 +77,9 @@ function setupHeaderScroll() {
 
   window.addEventListener("scroll", () => {
     if (window.scrollY > 20) {
-      header.style.boxShadow = "var(--shadow-md)";
-      header.style.backgroundColor = "rgba(255, 255, 255, 0.9)";
+      header.classList.add("scrolled");
     } else {
-      header.style.boxShadow = "none";
-      header.style.backgroundColor = "var(--bg-glass)";
+      header.classList.remove("scrolled");
     }
   });
 }
