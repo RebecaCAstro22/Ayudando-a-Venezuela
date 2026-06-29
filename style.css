@@ -810,13 +810,22 @@ footer {
 .flag-co .stripe-blue { background-color: #002f6c; height: 25%; width: 100%; }
 .flag-co .stripe-red { background-color: #ef4444; height: 25%; width: 100%; }
 
-/* Mexico flag styling */
-.flag-mx {
+/* Ecuador flag styling */
+.flag-ec .stripe-yellow { background-color: #fcd34d; height: 50%; width: 100%; }
+.flag-ec .stripe-blue { background-color: #002f6c; height: 25%; width: 100%; }
+.flag-ec .stripe-red { background-color: #ef4444; height: 25%; width: 100%; }
+
+/* Bolivia flag styling */
+.flag-bo .stripe-red { background-color: #ef4444; height: 33.33%; width: 100%; }
+.flag-bo .stripe-yellow { background-color: #fcd34d; height: 33.33%; width: 100%; }
+.flag-bo .stripe-green { background-color: #006847; height: 33.34%; width: 100%; }
+
+/* Peru flag styling */
+.flag-pe {
   flex-direction: row;
 }
-.flag-mx .col-green { background-color: #006847; width: 33.33%; height: 100%; }
-.flag-mx .col-white { background-color: #ffffff; width: 33.33%; height: 100%; }
-.flag-mx .col-red { background-color: #c8102e; width: 33.34%; height: 100%; }
+.flag-pe .col-red { background-color: #ef4444; width: 33.33%; height: 100%; }
+.flag-pe .col-white { background-color: #ffffff; width: 33.34%; height: 100%; }
 
 @media (max-width: 900px) {
   .footer-meta {
