@@ -8,7 +8,7 @@
 // ==========================================================================
 const WHATSAPP_CONFIG = {
   // Reemplazar con el número oficial del chatbot (con código de país, sin '+' ni ceros iniciales)
-  phoneNumber: "584241234567",
+  phoneNumber: "584220300918",
   
   // Mensajes preestablecidos para WhatsApp
   messages: {
@@ -20,7 +20,7 @@ const WHATSAPP_CONFIG = {
 
 const TELEGRAM_CONFIG = {
   // Reemplazar con el nombre de usuario del bot oficial de Telegram (sin '@')
-  botUsername: "AyudandoAVenezuelaBot",
+  botUsername: "BuscaChatVzla_bot",
   
   // Parámetros de inicio para Telegram deep linking (deben ser alfanuméricos y guiones bajos)
   startPayloads: {
